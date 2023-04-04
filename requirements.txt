@@ -1,6 +1,5 @@
 h5py
 pillow
-io
 Keras
 Keras-Applications
 Keras-Preprocessing
