@@ -16,16 +16,14 @@ print('[INFO] : Model loaded')
 
 st.title('What is this image? :cat: :dog:')
 
-global uploaded_file = st.file_uploader("Upload a file to classify")
-
+uploaded_file = st.file_uploader("Upload a file to classify")
+if uploaded_file is not None:
+    bytes_data = uploaded_file.read()
+    st.write("filename:", "target_image.jpg")
+    st.write(bytes_data)
 
 def predict():
-    if uploaded_file is not None:
-        bytes_data = uploaded_file.read()
-        st.write("filename:", uploaded_file.name)
-        st.write(bytes_data)
-        
-        data = image.load_img(uploaded_file.name, target_size=(128, 128, 3))
+        data = image.load_img('target_image.jpg', target_size=(128, 128, 3))
         # (150,150,3) ==> (1,150,150,3)
         data = np.expand_dims(data, axis=0)
 
@@ -51,4 +49,4 @@ def predict():
 
 trigger = st.button('Predict', on_click=predict)
 
-               
+             
