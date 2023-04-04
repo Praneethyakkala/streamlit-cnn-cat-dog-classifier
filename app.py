@@ -2,6 +2,7 @@ import streamlit as st
 from keras_preprocessing import image
 from keras.models import load_model
 import numpy as np
+from PIL import Image
 #import tensorflow as tf
 
 
@@ -19,11 +20,12 @@ global bytes_data
 uploaded_file = st.file_uploader("Upload a file to classify", label_visibility = "collapsed")
 if uploaded_file is not None:
     bytes_data = uploaded_file.read()
-    #st.write("filename:", "target_image.jpg")
-    #st.write(bytes_data)
-
+    img = Image.open(StringIO(bytes_data))
+    global data
+    data = Image.resize(img, (128, 128, 3))
+    
 def predict():
-        data = image.load_img(bytes_data, target_size=(128, 128, 3))
+        #data = image.load_img(bytes_data, target_size=(128, 128, 3))
         # (150,150,3) ==> (1,150,150,3)
         data = np.expand_dims(data, axis=0)
 
