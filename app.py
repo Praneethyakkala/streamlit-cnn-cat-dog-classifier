@@ -25,7 +25,7 @@ if uploaded_file is not None:
     data = img.resize((128, 128), Image.ANTIALIAS)
     
 def predict():
-    golbal data
+    global data
     #data = image.load_img(bytes_data, target_size=(128, 128, 3))
     # (150,150,3) ==> (1,150,150,3)
     data = np.expand_dims(data, axis=0)
