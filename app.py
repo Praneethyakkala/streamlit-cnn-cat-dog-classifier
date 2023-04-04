@@ -18,7 +18,8 @@ st.title('What is this image? :cat: :dog:')
 global bytes_data
 uploaded_file = st.file_uploader("Upload a file to classify", label_visibility = "collapsed")
 if uploaded_file is not None:
-    bytes_data = uploaded_file.read()
+    bytes_data = uploaded_file..getvalue()
+    st.write(bytes_data)
     #st.write("filename:", "target_image.jpg")
     #st.write(bytes_data)
 
