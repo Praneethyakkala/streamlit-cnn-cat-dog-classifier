@@ -4,7 +4,6 @@ Keras
 Keras-Applications
 Keras-Preprocessing
 numpy
-Pillow
 tensorboard
 tensorflow-estimator
 tensorflow
