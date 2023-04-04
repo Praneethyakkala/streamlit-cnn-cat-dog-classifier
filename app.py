@@ -23,7 +23,7 @@ if uploaded_file is not None:
     bytes_data = uploaded_file.read()
     img = Image.open(io.BytesIO(bytes_data))
     global data
-    data = img.resize((128, 128, 3), Image.ANTIALIAS)
+    data = img.resize((128, 128), Image.ANTIALIAS)
     
 def predict():
         #data = image.load_img(bytes_data, target_size=(128, 128, 3))
