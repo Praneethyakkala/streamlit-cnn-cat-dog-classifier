@@ -31,7 +31,7 @@ def predict():
         data = np.expand_dims(data, axis=0)
 
         # Scaling
-        data = data.astype('float') / 255
+        data = data.astype('float') / 255 
 
         # Prediction
         #with graph.as_default():
