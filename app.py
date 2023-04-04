@@ -25,28 +25,28 @@ if uploaded_file is not None:
     data = img.resize((128, 128), Image.ANTIALIAS)
     
 def predict():
-        #data = image.load_img(bytes_data, target_size=(128, 128, 3))
-        # (150,150,3) ==> (1,150,150,3)
-        data = np.expand_dims(data, axis=0)
+    golbal data
+    #data = image.load_img(bytes_data, target_size=(128, 128, 3))
+    # (150,150,3) ==> (1,150,150,3)
+    data = np.expand_dims(data, axis=0)
 
-        # Scaling
-        data = data.astype('float') / 255 
+    # Scaling
+    data = data.astype('float') / 255 
 
-        # Prediction
-        #with graph.as_default():
-        result = model.predict(data)
+    # Prediction
+    #with graph.as_default():
+    result = model.predict(data)
 
-        pred_prob = result.item()
+    pred_prob = result.item()
 
-        if pred_prob > .5:
-            label = 'Dog'
-            accuracy = round(pred_prob * 100, 2)
-        else:
-            label = 'Cat'
-            accuracy = round((1 - pred_prob) * 100, 2)
-        
-        st.success('This is a ' + label + ' predicted with confidence +' + str(accuracy))
-
+    if pred_prob > .5:
+        label = 'Dog'
+        accuracy = round(pred_prob * 100, 2)
+    else:
+        label = 'Cat'
+        accuracy = round((1 - pred_prob) * 100, 2)
+       
+    st.success('This is a ' + label + ' predicted with confidence +' + str(accuracy))
 
 trigger = st.button('Predict', on_click=predict)
                
