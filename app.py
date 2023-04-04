@@ -19,8 +19,8 @@ global bytes_data
 uploaded_file = st.file_uploader("Upload a file to classify", label_visibility = "collapsed")
 if uploaded_file is not None:
     bytes_data = uploaded_file.read()
-    st.write("filename:", "target_image.jpg")
-    st.write(bytes_data)
+    #st.write("filename:", "target_image.jpg")
+    #st.write(bytes_data)
 
 def predict():
         data = image.load_img(bytes_data, target_size=(128, 128, 3))
