@@ -2,16 +2,15 @@ import streamlit as st
 from keras_preprocessing import image
 from keras.models import load_model
 import numpy as np
-import tensorflow as tf
-
+#import tensorflow as tf
 
 
 """Load model once at running time for all the predictions"""
 print('[INFO] : Model loading ................')
 global model
 model = load_model('cat_dog_classifier.h5')
-global graph
-graph = tf.get_default_graph()
+#global graph
+#graph = tf.get_default_graph()
 print('[INFO] : Model loaded')
 
 st.title('What is this image? :cat: :dog:')
@@ -23,7 +22,7 @@ if uploaded_file is not None:
     st.write(bytes_data)
 
 def predict():
-        data = image.load_img('target_image.jpg', target_size=(128, 128, 3))
+        data = image.load_img("target_image.jpg", target_size=(128, 128, 3))
         # (150,150,3) ==> (1,150,150,3)
         data = np.expand_dims(data, axis=0)
 
@@ -31,8 +30,8 @@ def predict():
         data = data.astype('float') / 255
 
         # Prediction
-        with graph.as_default():
-            result = model.predict(data)
+        #with graph.as_default():
+        result = model.predict(data)
 
         pred_prob = result.item()
 
@@ -46,7 +45,5 @@ def predict():
         st.success('This is a ' + label + ' predicted with confidence +' + str(accuracy))
 
 
-
 trigger = st.button('Predict', on_click=predict)
-
-             
+               
