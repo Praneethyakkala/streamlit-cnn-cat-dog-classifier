@@ -16,13 +16,12 @@ model = load_model('cat_dog_classifier.h5')
 print('[INFO] : Model loaded')
 
 st.title('What is this image? :cat: :dog:')
-
+global data
 global bytes_data
 uploaded_file = st.file_uploader("Upload a file to classify", label_visibility = "collapsed")
 if uploaded_file is not None:
     bytes_data = uploaded_file.read()
     img = Image.open(io.BytesIO(bytes_data))
-    global data
     data = img.resize((128, 128), Image.ANTIALIAS)
     
 def predict():
