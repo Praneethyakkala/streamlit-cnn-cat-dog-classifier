@@ -1,9 +1,4 @@
-h5py
-pillow
-Keras
-Keras-Applications
-Keras-Preprocessing
+streamlit
 numpy
-tensorboard
-tensorflow-estimator
-tensorflow
+pillow
+keras
