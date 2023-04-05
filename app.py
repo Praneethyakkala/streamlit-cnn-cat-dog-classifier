@@ -40,7 +40,7 @@ def predict():
         label = 'Cat'
         accuracy = round((1 - pred_prob) * 100, 2)
        
-    st.success('This is a ' + label + ' predicted with confidence +' + str(accuracy))
+    st.success('This is a ' + label + ' predicted with confidence ' + str(accuracy))
 
 trigger = st.button('Predict', on_click=predict)
                
